@@ -9,6 +9,7 @@ cd $WORKSPACE
 # git pull stash master
 # git tag add gcam-v${GCAM_VERSION}
 
+# Clean exe
 rm -rf input/gcamdata/.drake
 rm -f exe/debug*
 rm -f exe/logs/*
@@ -19,15 +20,15 @@ touch exe/.basexhome
 cp "${RELEASE_FILES}/Mac/run-gcam.command" ./exe/
 cp -r "${RELEASE_FILES}/Additional Licenses" ./
 
-# remember to double swap around correct libs
+# TODO: build ModelInterface.app
+
 # Build; Mac OSX deployment target
 # MACOSX_DEPLOYMENT_TARGET = 10.9
-# Clean exe
 # Double check file list
 rm -f file_list_expanded
 IFS=$'\n'
-for f in `cat ${RELEASE_FILES}/Mac/mac_files`; do find $f -type f >> file_list_expanded; done
+for f in `cat ${RELEASE_FILES}/Mac/mac_files`; do find $f -type f | grep -v '.basex$' >> file_list_expanded; find $f -type l >> file_list_expanded; done
 unset IFS
 echo 'libs/java' >> file_list_expanded
-# remember to double check install name path for xercesc in ./Release/objects
+# TODO: automate checks to ensure no proprietary data
 zip -y gcam-v${GCAM_VERSION}-Mac-Release-Package.zip -@ < file_list_expanded
