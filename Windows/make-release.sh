@@ -27,6 +27,6 @@ rm -f file_list_expanded
 IFS=$'\n'
 for f in `cat ${RELEASE_FILES}/Windows/win_files`; do find $f -type f | grep -v '.basex$' >> file_list_expanded; done
 unset IFS
-cat 'ModelInterface/logs' >> file_list_expanded
+echo 'ModelInterface/logs' >> file_list_expanded
 # double check everything is in file_list_expanded
 zip -y gcam-v${GCAM_VERSION}-Windows-Release-Package.zip -@ < file_list_expanded
