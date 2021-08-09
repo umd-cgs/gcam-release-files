@@ -21,6 +21,7 @@ rm -f ModelInterface/logs/*
 cp "${RELEASE_FILES}/Windows/run-gcam.bat" ./exe/
 cp -r "${RELEASE_FILES}/Additional Licenses" ./
 cp "${RELEASE_FILES}/Windows/model_interface.properties" ./ModelInterface/
+cp "${RELEASE_FILES}/Windows/run-model-interface.bat" ./ModelInterface/
 
 # Double check file list
 rm -f file_list_expanded
