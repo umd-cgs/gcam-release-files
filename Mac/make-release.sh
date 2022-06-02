@@ -2,7 +2,7 @@
 
 WORKSPACE=~/model/gcam-github
 RELEASE_FILES=~/model/gcam-release-files
-GCAM_VERSION='5.4'
+GCAM_VERSION='6.0'
 cd $WORKSPACE
 
 # git remote add stash https://stash.pnnl.gov/scm/jgcri/gcam-core.git
