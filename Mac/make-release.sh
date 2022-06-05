@@ -14,6 +14,7 @@ cd $WORKSPACE
 
 # Clean exe
 rm -rf input/gcamdata/.drake
+rm -rf input/gcamdata/renv/library
 rm -f exe/debug*
 rm -f exe/logs/*
 rm -f exe/restart/*
