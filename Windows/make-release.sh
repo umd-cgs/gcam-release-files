@@ -2,7 +2,7 @@
 
 WORKSPACE=~/model/gcam-core
 RELEASE_FILES=~/model/gcam-release-files
-GCAM_VERSION='5.4'
+GCAM_VERSION='6.0'
 cd $WORKSPACE
 
 # git remote add stash https://stash.pnnl.gov/scm/jgcri/gcam-core.git
@@ -11,6 +11,7 @@ cd $WORKSPACE
 
 # Clean exe
 rm -rf input/gcamdata/.drake
+rm -rf input/gcamdata/renv/library
 rm -f exe/debug*
 rm -f exe/logs/*
 rm -f exe/restart/*

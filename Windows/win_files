@@ -16,7 +16,6 @@ exe/logs
 exe/restart
 exe/run-gcam.bat
 exe/.basexhome
-exe/xerces-c_3_2.dll
 exe/tbb12.dll
 exe/tbbmalloc.dll
 exe/tbbmalloc_proxy.dll
