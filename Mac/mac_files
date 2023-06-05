@@ -3,7 +3,7 @@ exe/batch_SSP_SPA23.xml
 exe/batch_SSP_SPA5.xml
 exe/batch_SSP_SPA1.xml
 exe/batch_SSP_SPA4.xml
-exe/Release/gcam
+exe/gcam
 exe/XMLDBDriver.jar
 exe/XMLDBDriver.properties
 exe/configuration.xml
@@ -17,8 +17,6 @@ exe/restart
 exe/run-gcam.command
 exe/.basexhome
 libs/jars
-libs/boost-lib/stage/lib/libboost_filesystem.dylib
-libs/boost-lib/stage/lib/libboost_system.dylib
 libs/tbb/lib/libtbb.12.2.dylib
 libs/tbb/lib/libtbb.12.dylib
 libs/tbb/lib/libtbb.dylib
