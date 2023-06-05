@@ -17,8 +17,6 @@ exe/restart
 exe/run-gcam.command
 exe/.basexhome
 libs/jars
-libs/xercesc/lib/libxerces-c-3.2.dylib
-libs/xercesc/lib/libxerces-c.dylib
 libs/boost-lib/stage/lib/libboost_filesystem.dylib
 libs/boost-lib/stage/lib/libboost_system.dylib
 libs/tbb/lib/libtbb.12.2.dylib
