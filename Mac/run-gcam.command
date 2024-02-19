@@ -39,4 +39,4 @@ then
 fi
 
 # We can now run GCAM
-./Release/gcam -C configuration.xml
+./gcam -C configuration.xml

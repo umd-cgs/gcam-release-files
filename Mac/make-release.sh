@@ -2,12 +2,12 @@
 
 WORKSPACE=~/model/gcam-github
 RELEASE_FILES=~/model/gcam-release-files
-GCAM_VERSION='6.0'
+GCAM_VERSION='7.0'
 cd $WORKSPACE
 
 # git remote add stash https://stash.pnnl.gov/scm/jgcri/gcam-core.git
 # git pull stash master
-# git tag gcam-v${GCAM_VERSION}
+# git tag -a gcam-v${GCAM_VERSION}
 # git push stash gcam-v${GCAM_VERSION}
 # git push origin master
 # git push origin gcam-v${GCAM_VERSION}
