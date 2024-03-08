@@ -1,8 +1,10 @@
 #!/bin/bash
 
-WORKSPACE=~/model/gcam-core
-RELEASE_FILES=~/model/gcam-release-files
-GCAM_VERSION='6.0'
+# Define WORKSPACE path relative to location of make-release.sh 
+WORKSPACE='../../../gcam_onTufTop/gcam-v6.0-Windows-Release-Package'
+# Define RELEASE_FILES path relative to WORKSPACE
+RELEASE_FILES='../../preppingDocuments/gcam-release-files'
+GCAM_VERSION='6test'
 cd $WORKSPACE
 
 # git remote add stash https://stash.pnnl.gov/scm/jgcri/gcam-core.git
@@ -12,9 +14,12 @@ cd $WORKSPACE
 # Clean exe
 rm -rf input/gcamdata/.drake
 rm -rf input/gcamdata/renv/library
+rm -rf input/gcamdata/.Rproj.user/
+rm -rf input/gcamdata/outputs/
 rm -f exe/debug*
 rm -f exe/logs/*
 rm -f exe/restart/*
+#CHANGE to configuration_china.xml
 cp exe/configuration_ref.xml exe/configuration.xml
 touch exe/.basexhome
 rm -f ModelInterface/logs/*
@@ -26,9 +31,10 @@ cp "${RELEASE_FILES}/Windows/run-model-interface.bat" ./ModelInterface/
 
 # Double check file list
 rm -f file_list_expanded
-IFS=$'\n'
+IFS=$'\r\n'
 for f in `cat ${RELEASE_FILES}/Windows/win_files`; do find $f -type f | grep -v '.basex$' >> file_list_expanded; done
 unset IFS
 echo 'ModelInterface/logs' >> file_list_expanded
 # double check everything is in file_list_expanded
-zip -y gcam-v${GCAM_VERSION}-Windows-Release-Package.zip -@ < file_list_expanded
+# removed -y
+zip gcam-v${GCAM_VERSION}-Windows-Release-Package.zip -@ < file_list_expanded
