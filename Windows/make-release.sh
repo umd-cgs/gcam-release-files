@@ -1,6 +1,8 @@
 #!/bin/bash
 
+# Define WORKSPACE path relative to location of make-release.sh 
 WORKSPACE=~/model/gcam-core
+# Define RELEASE_FILES path relative to WORKSPACE
 RELEASE_FILES=~/model/gcam-release-files
 GCAM_VERSION='7.0'
 cd $WORKSPACE
@@ -12,6 +14,8 @@ cd $WORKSPACE
 # Clean exe
 rm -rf input/gcamdata/.drake
 rm -rf input/gcamdata/renv/library
+rm -rf input/gcamdata/.Rproj.user/
+rm -rf input/gcamdata/outputs/
 rm -f exe/debug*
 rm -f exe/logs/*
 rm -f exe/restart/*
@@ -26,9 +30,9 @@ cp "${RELEASE_FILES}/Windows/run-model-interface.bat" ./ModelInterface/
 
 # Double check file list
 rm -f file_list_expanded
-IFS=$'\n'
+IFS=$'\r\n'
 for f in `cat ${RELEASE_FILES}/Windows/win_files`; do find $f -type f | grep -v '.basex$' >> file_list_expanded; done
 unset IFS
 echo 'ModelInterface/logs' >> file_list_expanded
 # double check everything is in file_list_expanded
-zip -y gcam-v${GCAM_VERSION}-Windows-Release-Package.zip -@ < file_list_expanded
+zip gcam-v${GCAM_VERSION}-Windows-Release-Package.zip -@ < file_list_expanded
