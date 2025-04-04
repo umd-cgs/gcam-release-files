@@ -6,6 +6,12 @@ exe/batch_SSP_SPA4.xml
 exe/gcam
 exe/XMLDBDriver.jar
 exe/XMLDBDriver.properties
+exe/configuration_china.xml
+exe/configuration_china_ssp1.xml
+exe/configuration_china_ssp2.xml
+exe/configuration_china_ssp3.xml
+exe/configuration_china_ssp4.xml
+exe/configuration_china_ssp5.xml
 exe/configuration.xml
 exe/configuration_ref.xml
 exe/configuration_policy.xml
@@ -26,6 +32,8 @@ libs/tbb/lib/libtbbmalloc.dylib
 libs/tbb/lib/libtbbmalloc_proxy.2.2.dylib
 libs/tbb/lib/libtbbmalloc_proxy.2.dylib
 libs/tbb/lib/libtbbmalloc_proxy.dylib
+libs/tbb/lib/libtbbmalloc.2.11.dylib
+libs/tbb/lib/libtbbmalloc_proxy.2.11.dylib
 ModelInterface/ModelInterface.app
 input/
 output/

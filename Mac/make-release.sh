@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Define WORKSPACE path relative to location of make-release.sh 
-WORKSPACE=~/model/gcam-github
+WORKSPACE='../../g-c_for_v7_Mac_arm64_build'
 # Define RELEASE_FILES path relative to WORKSPACE
-RELEASE_FILES=~/model/gcam-release-files
-GCAM_VERSION='7.0'
+RELEASE_FILES='../gcam-release-files'
+GCAM_VERSION='7'
 cd $WORKSPACE
 
 # git remote add stash https://stash.pnnl.gov/scm/jgcri/gcam-core.git
@@ -22,7 +22,7 @@ rm -rf input/gcamdata/outputs/
 rm -f exe/debug*
 rm -f exe/logs/*
 rm -f exe/restart/*
-cp exe/configuration_ref.xml exe/configuration.xml
+cp exe/configuration_china.xml exe/configuration.xml
 touch exe/.basexhome
 rm -f ModelInterface/logs/*
 
@@ -40,4 +40,4 @@ for f in `cat ${RELEASE_FILES}/Mac/mac_files`; do find $f -type f | grep -v '.ba
 unset IFS
 echo 'libs/java' >> file_list_expanded
 # TODO: automate checks to ensure no proprietary data
-zip gcam-v${GCAM_VERSION}-Mac-Release-Package.zip -@ < file_list_expanded
+zip -y gcam-china-v${GCAM_VERSION}-Mac_arm64-Release-Package.zip -@ < file_list_expanded
