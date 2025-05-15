@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Define WORKSPACE path relative to location of make-release.sh 
-WORKSPACE='../../../gcam_onTufTop/gcam-china-dev_andPublic'
+WORKSPACE='../../gcam-china-dev_for7p1release'
 # Define RELEASE_FILES path relative to WORKSPACE
-RELEASE_FILES='../../preppingDocuments/gcam-release-files'
-GCAM_VERSION='7'
+RELEASE_FILES='../gcam-release-files-7p1'
+GCAM_VERSION='7.1'
 cd $WORKSPACE
 
 # git remote add stash https://stash.pnnl.gov/scm/jgcri/gcam-core.git

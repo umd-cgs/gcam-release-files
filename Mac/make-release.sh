@@ -40,4 +40,4 @@ for f in `cat ${RELEASE_FILES}/Mac/mac_files`; do find $f -type f | grep -v '.ba
 unset IFS
 echo 'libs/java' >> file_list_expanded
 # TODO: automate checks to ensure no proprietary data
-zip -y gcam-china-v${GCAM_VERSION}-Mac_arm64-Release-Package.zip -@ < file_list_expanded
+zip gcam-china-v${GCAM_VERSION}-Mac_arm64-Release-Package.zip -@ < file_list_expanded
