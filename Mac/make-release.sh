@@ -2,7 +2,7 @@
 
 WORKSPACE=~/models/gcam-github
 RELEASE_FILES=~/models/gcam-release-files
-GCAM_VERSION='7.1'
+GCAM_VERSION='8.2'
 cd $WORKSPACE
 
 # git remote add stash https://stash.pnnl.gov/scm/jgcri/gcam-core.git
@@ -23,6 +23,7 @@ touch exe/.basexhome
 
 cp "${RELEASE_FILES}/Mac/run-gcam.command" ./exe/
 cp -r "${RELEASE_FILES}/Additional Licenses" ./
+cp "${RELEASE_FILES}/Mac/model_interface.properties" ./ModelInterface/
 
 # TODO: build ModelInterface.app
 
