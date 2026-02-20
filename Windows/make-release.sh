@@ -4,7 +4,7 @@
 WORKSPACE=~/model/gcam-core
 # Define RELEASE_FILES path relative to WORKSPACE
 RELEASE_FILES=~/model/gcam-release-files
-GCAM_VERSION='7.0'
+GCAM_VERSION='8.2'
 cd $WORKSPACE
 
 # git remote add stash https://stash.pnnl.gov/scm/jgcri/gcam-core.git

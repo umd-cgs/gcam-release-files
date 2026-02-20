@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Define WORKSPACE path relative to location of make-release.sh 
-WORKSPACE=~/model/gcam-github
-# Define RELEASE_FILES path relative to WORKSPACE
-RELEASE_FILES=~/model/gcam-release-files
-GCAM_VERSION='7.0'
+WORKSPACE=~/models/gcam-github
+# Define RELEASE_FILES path absolutely or relative to WORKSPACE
+RELEASE_FILES=~/models/gcam-release-files
+GCAM_VERSION='8.2'
 cd $WORKSPACE
 
 # git remote add stash https://stash.pnnl.gov/scm/jgcri/gcam-core.git
@@ -28,6 +28,7 @@ rm -f ModelInterface/logs/*
 
 cp "${RELEASE_FILES}/Mac/run-gcam.command" ./exe/
 cp -r "${RELEASE_FILES}/Additional Licenses" ./
+cp "${RELEASE_FILES}/Mac/model_interface.properties" ./ModelInterface/
 
 # TODO: build ModelInterface.app
 
