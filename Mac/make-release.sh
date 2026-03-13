@@ -28,6 +28,7 @@ rm -f ModelInterface/logs/*
 
 cp "${RELEASE_FILES}/Mac/run-gcam.command" ./exe/
 cp -r "${RELEASE_FILES}/Additional Licenses" ./
+cp "${RELEASE_FILES}/Mac/model_interface.properties" ./ModelInterface/
 
 # TODO: build ModelInterface.app
 
