@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# Define WORKSPACE path relative to location of make-release.sh 
-WORKSPACE='../../gcam-china-dev_for7p1release'
-# Define RELEASE_FILES path relative to WORKSPACE
-RELEASE_FILES=~/model/gcam-release-files
-GCAM_VERSION='8.2'
+# Define WORKSPACE path absolutely or relative to location of make-release.sh 
+WORKSPACE='../../gcam-china-dev_for7and8releases'
+# Define RELEASE_FILES path absolutely or relative to WORKSPACE
+RELEASE_FILES='../gcam-release-files-7and8'
+GCAM_VERSION='8'
 cd $WORKSPACE
 
 # git remote add stash https://stash.pnnl.gov/scm/jgcri/gcam-core.git
