@@ -5,6 +5,7 @@ WORKSPACE='../../gcam-china-dev'
 # Define RELEASE_FILES path absolutely or relative to WORKSPACE
 RELEASE_FILES='../gcam-release-files'
 RELEASE_VERSION_PATH='../releases/gcam-v8.2-Mac-Release-Package/'
+GCAM_VERSION='8'
 
 # git remote add stash https://stash.pnnl.gov/scm/jgcri/gcam-core.git
 # git pull stash master
