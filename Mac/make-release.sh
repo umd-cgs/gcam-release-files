@@ -1,10 +1,15 @@
 #!/bin/bash
+#
+# Call this script as:
+# $ bash /path/to/make-release.sh /path/to/gcam-folder /path/to/latest-release
+
+MAC_RELEASE_FILES=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
 
 # Define WORKSPACE path absolutely or relative to location of make-release.sh 
-WORKSPACE='../../gcam-china-dev'
+WORKSPACE="$1"
 # Define RELEASE_FILES path absolutely or relative to WORKSPACE
-RELEASE_FILES='../gcam-release-files'
-RELEASE_VERSION_PATH='../releases/gcam-v8.2-Mac-Release-Package/'
+RELEASE_VERSION_PATH="$2"
 GCAM_VERSION='8'
 
 # git remote add stash https://stash.pnnl.gov/scm/jgcri/gcam-core.git
@@ -22,6 +27,15 @@ mkdir -p ./libs
 cp -r $RELEASE_VERSION_PATH/libs/* ./libs/
 cp -r $RELEASE_VERSION_PATH/ModelInterface/* ./ModelInterface/
 
+# set env vars
+export JARS_LIB=./libs/jars/*
+export MACOSX_DEPLOYMENT_TARGET=12
+
+# build gcam and gcam data
+make install_hector
+make -j 20 
+make drake
+
 # Clean exe
 rm -rf input/gcamdata/.drake
 rm -rf input/gcamdata/renv/library
@@ -34,9 +48,9 @@ cp exe/configuration_china.xml exe/configuration.xml
 touch exe/.basexhome
 rm -f ModelInterface/logs/*
 
-cp "${RELEASE_FILES}/Mac/run-gcam.command" ./exe/
-cp -r "${RELEASE_FILES}/Additional Licenses" ./
-cp "${RELEASE_FILES}/Mac/model_interface.properties" ./ModelInterface/
+cp "${MAC_RELEASE_FILES}/run-gcam.command" ./exe/
+cp -r "${MAC_RELEASE_FILES}/../Additional Licenses" ./
+cp "${MAC_RELEASE_FILES}/model_interface.properties" ./ModelInterface/
 
 # TODO: build ModelInterface.app
 
@@ -45,7 +59,7 @@ cp "${RELEASE_FILES}/Mac/model_interface.properties" ./ModelInterface/
 # Double check file list
 rm -f file_list_expanded
 IFS=$'\r\n'
-for f in `cat ${RELEASE_FILES}/Mac/mac_files`; do find $f -type f | grep -v '.basex$' >> file_list_expanded; find $f -type l >> file_list_expanded; done
+for f in `cat ${MAC_RELEASE_FILES}/mac_files`; do find $f -type f | grep -v '.basex$' >> file_list_expanded; find $f -type l >> file_list_expanded; done
 unset IFS
 echo 'libs/java' >> file_list_expanded
 # TODO: automate checks to ensure no proprietary data
