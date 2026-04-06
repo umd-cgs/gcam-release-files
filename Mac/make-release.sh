@@ -28,10 +28,11 @@ cp -r $RELEASE_VERSION_PATH/libs/* ./libs/
 cp -r $RELEASE_VERSION_PATH/ModelInterface/* ./ModelInterface/
 
 # set env vars
-export JARS_LIB=./libs/jars/*
+export JARS_LIB=../libs/jars/* # this is weird because it has to be relevat to the exe folder
 export MACOSX_DEPLOYMENT_TARGET=12
 
 # build gcam and gcam data
+make clean
 make install_hector
 make -j 20 
 make drake
