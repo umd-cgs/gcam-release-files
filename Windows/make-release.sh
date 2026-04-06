@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Define WORKSPACE path absolutely or relative to location of make-release.sh 
-WORKSPACE='../../gcam-china-dev_for7and8releases'
+WORKSPACE=~/model/gcam-core
 # Define RELEASE_FILES path absolutely or relative to WORKSPACE
-RELEASE_FILES='../gcam-release-files-7and8'
-GCAM_VERSION='8'
+RELEASE_FILES=~/model/gcam-release-files
+GCAM_VERSION='8.2'
 cd $WORKSPACE
 
 # git remote add stash https://stash.pnnl.gov/scm/jgcri/gcam-core.git
@@ -19,7 +19,7 @@ rm -rf input/gcamdata/outputs/
 rm -f exe/debug*
 rm -f exe/logs/*
 rm -f exe/restart/*
-cp exe/configuration_china.xml exe/configuration.xml
+cp exe/configuration_ref.xml exe/configuration.xml
 touch exe/.basexhome
 rm -f ModelInterface/logs/*
 
@@ -35,4 +35,4 @@ for f in `cat ${RELEASE_FILES}/Windows/win_files`; do find $f -type f | grep -v 
 unset IFS
 echo 'ModelInterface/logs' >> file_list_expanded
 # double check everything is in file_list_expanded
-zip gcam-china-v${GCAM_VERSION}-Windows-Release-Package.zip -@ < file_list_expanded
+zip gcam-v${GCAM_VERSION}-Windows-Release-Package.zip -@ < file_list_expanded

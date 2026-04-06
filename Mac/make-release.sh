@@ -10,7 +10,7 @@ MAC_RELEASE_FILES=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null &&
 WORKSPACE="$1"
 # Define RELEASE_FILES path absolutely or relative to WORKSPACE
 RELEASE_VERSION_PATH="$2"
-GCAM_VERSION='8'
+GCAM_VERSION='8.2'
 
 # git remote add stash https://stash.pnnl.gov/scm/jgcri/gcam-core.git
 # git pull stash master
@@ -28,7 +28,7 @@ cp -r $RELEASE_VERSION_PATH/libs/* ./libs/
 cp -r $RELEASE_VERSION_PATH/ModelInterface/* ./ModelInterface/
 
 # set env vars
-export JARS_LIB=../libs/jars/* # this is weird because it has to be relevat to the exe folder
+export JARS_LIB=../libs/jars/* # this is weird because it has to be relative to the exe folder
 export MACOSX_DEPLOYMENT_TARGET=12
 
 # build gcam and gcam data
@@ -45,7 +45,7 @@ rm -rf input/gcamdata/outputs/
 rm -f exe/debug*
 rm -f exe/logs/*
 rm -f exe/restart/*
-cp exe/configuration_china.xml exe/configuration.xml
+cp exe/configuration_ref.xml exe/configuration.xml
 touch exe/.basexhome
 rm -f ModelInterface/logs/*
 
@@ -59,9 +59,9 @@ cp "${MAC_RELEASE_FILES}/model_interface.properties" ./ModelInterface/
 # MACOSX_DEPLOYMENT_TARGET = 10.9
 # Double check file list
 rm -f file_list_expanded
-IFS=$'\r\n'
+IFS=$'\n'
 for f in `cat ${MAC_RELEASE_FILES}/mac_files`; do find $f -type f | grep -v '.basex$' >> file_list_expanded; find $f -type l >> file_list_expanded; done
 unset IFS
 echo 'libs/java' >> file_list_expanded
 # TODO: automate checks to ensure no proprietary data
-zip gcam-china-v${GCAM_VERSION}-Mac_arm64-Release-Package.zip -@ < file_list_expanded
+zip -y gcam-v${GCAM_VERSION}-Mac-Release-Package.zip -@ < file_list_expanded
